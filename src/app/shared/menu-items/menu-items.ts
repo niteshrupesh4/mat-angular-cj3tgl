@@ -50,7 +50,8 @@ const MENUITEMS = [
     type: 'link',
     name: 'Slide Toggle',
     icon: 'all_inclusive'
-  }
+  },
+    { state: 'form', type: 'link', name: 'Forms', icon: 'developer_mode' }
 ];
 
 @Injectable()
