@@ -37,6 +37,8 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatDialogModule, MatSnackBarModule } from "@angular/material";
+import { MatVideoModule } from 'mat-video';
+
 /**
  * NgModule that includes all Material modules that are required to serve the demo-app.
  */
@@ -82,6 +84,7 @@ import { MatDialogModule, MatSnackBarModule } from "@angular/material";
     OverlayModule,
     PlatformModule,
     PortalModule,
+    MatVideoModule
   ]
 })
 export class MaterialModule { }

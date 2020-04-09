@@ -4,6 +4,7 @@ import { FormsComponent } from './forms/forms.component';
 import { ComponentsRoutingModule } from './components-routing.module';
 import { MaterialModule } from '../material/material.module';
 import { FormsModule } from '@angular/forms';
+import { VideoPlayerComponent } from './video-player/video-player.component';
 
 @NgModule({
   imports: [
@@ -12,6 +13,6 @@ import { FormsModule } from '@angular/forms';
     MaterialModule,
     FormsModule
   ],
-  declarations: [FormsComponent]
+  declarations: [FormsComponent, VideoPlayerComponent]
 })
 export class ComponentsModule { }
