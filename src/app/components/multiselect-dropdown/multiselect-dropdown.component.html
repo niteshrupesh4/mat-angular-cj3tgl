@@ -20,7 +20,7 @@
             <label for="name">Email Address</label>
             <input class="form-control" formControlName="email">
         </div>
-        <button (click)="submitForm()" [disabled]="!userForm.valid" class="btn btn-success btn-block">Submit</button>
+        <button mat-raised-button color="primary" (click)="submitForm()" [disabled]="!userForm.valid">Submit</button>
     </form>
 	</mat-card-content>
 </mat-card>

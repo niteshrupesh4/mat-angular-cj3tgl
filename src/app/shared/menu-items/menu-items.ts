@@ -53,7 +53,7 @@ const MENUITEMS = [
   },
   { state: "form", type: "link", name: "Forms", icon: "developer_mode" },
   { state: "video", type: "link", name: "Video Play", icon: "movie" },
-   { state: "multi-select", type: "link", name: "Multi Select", icon: "movie" }
+   { state: "multi-select", type: "link", name: "Multi Select", icon: "check" }
 ];
 
 @Injectable()

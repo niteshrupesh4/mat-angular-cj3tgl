@@ -24,7 +24,7 @@ export class MultiselectDropdownComponent implements OnInit {
         });
     }
     submitForm() {
-        console.log(this.userForm);
+        console.log(this.userForm.value);
     }
     ngOnInit() {
 
