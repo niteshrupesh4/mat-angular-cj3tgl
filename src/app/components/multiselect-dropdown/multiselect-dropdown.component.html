@@ -1,37 +1,26 @@
 <mat-card>
 	<mat-card-content>
 		<mat-card-title>Forms basic</mat-card-title>
-		<p>
-			<mat-form-field appearance="legacy">
-				<mat-label>Legacy form field</mat-label>
-				<input matInput placeholder="Placeholder">
-				<mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-				<mat-hint>Hint</mat-hint>
-			</mat-form-field>
-		</p>
-		<p>
-			<mat-form-field appearance="standard">
-				<mat-label>Standard form field</mat-label>
-				<input matInput placeholder="Placeholder">
-				<mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-				<mat-hint>Hint</mat-hint>
-			</mat-form-field>
-		</p>
-		<p>
-			<mat-form-field appearance="fill">
-				<mat-label>Fill form field</mat-label>
-				<input matInput placeholder="Placeholder">
-				<mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-				<mat-hint>Hint</mat-hint>
-			</mat-form-field>
-		</p>
-		<p>
-			<mat-form-field appearance="outline">
-				<mat-label>Outline form field</mat-label>
-				<input matInput placeholder="Placeholder">
-				<mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-				<mat-hint>Hint</mat-hint>
-			</mat-form-field>
-		</p>
+		<form [formGroup]="userForm" novalidate>
+        <div class="form-group">
+            <label for="name">Skills</label>
+           <angular2-multiselect [data]="itemList" [(ngModel)]="selectedItems" 
+                                  [settings]="settings" 
+                                  (onSelect)="onItemSelect($event)"
+                                  (onDeSelect)="OnItemDeSelect($event)" 
+                                  (onSelectAll)="onSelectAll($event)" 
+                                  (onDeSelectAll)="onDeSelectAll($event)" formControlName="skills">
+            </angular2-multiselect>
+        </div>
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input class="form-control" formControlName="name">
+        </div>
+        <div class="form-group">
+            <label for="name">Email Address</label>
+            <input class="form-control" formControlName="email">
+        </div>
+        <button (click)="submitForm()" [disabled]="!userForm.valid" class="btn btn-success btn-block">Submit</button>
+    </form>
 	</mat-card-content>
 </mat-card>
