@@ -5,6 +5,7 @@ import { ComponentsRoutingModule } from './components-routing.module';
 import { MaterialModule } from '../material/material.module';
 import { FormsModule } from '@angular/forms';
 import { VideoPlayerComponent } from './video-player/video-player.component';
+import { MultiselectDropdownComponent } from './multiselect-dropdown/multiselect-dropdown.component';
 
 @NgModule({
   imports: [
@@ -13,6 +14,6 @@ import { VideoPlayerComponent } from './video-player/video-player.component';
     MaterialModule,
     FormsModule
   ],
-  declarations: [FormsComponent, VideoPlayerComponent]
+  declarations: [FormsComponent, VideoPlayerComponent, MultiselectDropdownComponent]
 })
 export class ComponentsModule { }
