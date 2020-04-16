@@ -7,6 +7,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { VideoPlayerComponent } from './video-player/video-player.component';
 import { MultiselectDropdownComponent } from './multiselect-dropdown/multiselect-dropdown.component';
 import { AngularMultiSelectModule } from 'angular2-multiselect-dropdown';
+import { ImageCompressComponent } from './image-compress/image-compress.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -16,6 +17,6 @@ import { AngularMultiSelectModule } from 'angular2-multiselect-dropdown';
     AngularMultiSelectModule,
     ReactiveFormsModule
   ],
-  declarations: [FormsComponent, VideoPlayerComponent, MultiselectDropdownComponent]
+  declarations: [FormsComponent, VideoPlayerComponent, MultiselectDropdownComponent, ImageCompressComponent]
 })
 export class ComponentsModule { }

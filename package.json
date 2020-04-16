@@ -34,6 +34,7 @@
     "jquery": "3.5.0",
     "mat-video": "2.8.0",
     "ng-chartist": "4.1.0",
+    "ngx-image-compress": "^8.0.4",
     "node-sass": "4.13.1",
     "rxjs": "6.5.5",
     "rxjs-compat": "6.5.5",

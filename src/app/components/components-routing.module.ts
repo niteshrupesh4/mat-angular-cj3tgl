@@ -3,6 +3,7 @@ import { Routes, RouterModule } from "@angular/router";
 import { FormsComponent } from "./forms/forms.component";
 import { VideoPlayerComponent } from "./video-player/video-player.component";
 import { MultiselectDropdownComponent } from "./multiselect-dropdown/multiselect-dropdown.component";
+import { ImageCompressComponent } from "./image-compress/image-compress.component";
 
 const routes: Routes = [
   {
@@ -16,6 +17,10 @@ const routes: Routes = [
   {
     path: "multi-select",
     component: MultiselectDropdownComponent
+  },
+  {
+    path: "image-compress",
+    component: ImageCompressComponent
   }
 ];
 
