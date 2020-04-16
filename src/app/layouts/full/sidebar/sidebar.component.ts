@@ -17,6 +17,7 @@ import { MenuItems } from '../../../shared/menu-items/menu-items';
 })
 export class AppSidebarComponent implements OnDestroy {
   mobileQuery: MediaQueryList;
+menuSubmenuItems = [];
 
   private _mobileQueryListener: () => void;
 
@@ -28,6 +29,7 @@ export class AppSidebarComponent implements OnDestroy {
     this.mobileQuery = media.matchMedia('(min-width: 768px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
+    this.menuSubmenuItems = this.menuItems.getMenuWithSubmenu();
   }
 
   ngOnDestroy(): void {
