@@ -7,17 +7,17 @@ import {
   HostListener,
   Directive,
   AfterViewInit
-} from '@angular/core';
-import { MediaMatcher } from '@angular/cdk/layout';
-import { MenuItems } from '../../../shared/menu-items/menu-items';
+} from "@angular/core";
+import { MediaMatcher } from "@angular/cdk/layout";
+import { MenuItems } from "../../../shared/menu-items/menu-items";
 @Component({
-  selector: 'app-sidebar',
-  templateUrl: './sidebar.component.html',
+  selector: "app-sidebar",
+  templateUrl: "./sidebar.component.html",
   styleUrls: []
 })
 export class AppSidebarComponent implements OnDestroy {
   mobileQuery: MediaQueryList;
-menuSubmenuItems = [];
+  menuSubmenuItems = [];
 
   private _mobileQueryListener: () => void;
 
@@ -26,7 +26,7 @@ menuSubmenuItems = [];
     media: MediaMatcher,
     public menuItems: MenuItems
   ) {
-    this.mobileQuery = media.matchMedia('(min-width: 768px)');
+    this.mobileQuery = media.matchMedia("(min-width: 768px)");
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
     this.menuSubmenuItems = this.menuItems.getMenuWithSubmenu();
