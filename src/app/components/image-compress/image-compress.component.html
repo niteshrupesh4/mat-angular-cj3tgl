@@ -1,6 +1,10 @@
 <mat-card>
 	<mat-card-content>
 		<mat-card-title>Image Compre</mat-card-title>
-	
+	 <div>
+      <button (click)="compressFile()">Upload and compress Image</button>
+      <img *ngIf="imgResultBeforeCompress" [src]="imgResultBeforeCompress" alt="">
+      <img *ngIf="imgResultAfterCompress" [src]="imgResultAfterCompress" alt="">
+    </div>
 	</mat-card-content>
 </mat-card>
