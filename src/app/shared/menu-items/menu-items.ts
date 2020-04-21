@@ -87,6 +87,12 @@ const menu = [
         type: "link",
         name: "Image Compress",
         icon: "donut_large"
+      },
+      {
+        state: "list-comment",
+        type: "link",
+        name: "List Comment",
+        icon: "comment"
       }
     ]
   },

@@ -46,7 +46,7 @@ export class ListCommentReactiveFormComponent implements OnInit {
   ];
 
   onClick(data: any) {
-    alert(JSON.stringify);
+    alert(JSON.stringify(data));
   }
 
 }
