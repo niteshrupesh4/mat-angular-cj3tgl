@@ -9,6 +9,7 @@ import { MultiselectDropdownComponent } from "./multiselect-dropdown/multiselect
 import { AngularMultiSelectModule } from "angular2-multiselect-dropdown";
 import { ImageCompressComponent } from "./image-compress/image-compress.component";
 import { NgxImageCompressService } from "ngx-image-compress";
+import { ListCommentReactiveFormComponent } from './list-comment-reactive-form/list-comment-reactive-form.component';
 
 @NgModule({
   imports: [
@@ -23,7 +24,8 @@ import { NgxImageCompressService } from "ngx-image-compress";
     FormsComponent,
     VideoPlayerComponent,
     MultiselectDropdownComponent,
-    ImageCompressComponent
+    ImageCompressComponent,
+    ListCommentReactiveFormComponent
   ],
   providers: [NgxImageCompressService]
 })
