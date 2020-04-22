@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from "@angular/core";
-import { DataService, Pokemon } from "../data.service";
 import { CdkVirtualScrollViewport } from "@angular/cdk/scrolling";
 import { Observable } from "rxjs";
+import { STATES, FIXED_SIZE } from "./states";
 
 @Component({
   selector: "app-scroll-pagination",
@@ -9,24 +9,31 @@ import { Observable } from "rxjs";
   styleUrls: ["./scroll-pagination.component.scss"]
 })
 export class ScrollPaginationComponent implements OnInit {
-  pokemons: Observable<Pokemon>;
-
-  @ViewChild(CdkVirtualScrollViewport) viewport: CdkVirtualScrollViewport;
-
-  constructor(private pkmService: DataService) {
-    this.pokemons = this.pkmService.fetchPokemons();
-  }
-
-  idTrackFn = (pokemon: Pokemon) => pokemon.number;
-
-  currentIndex(index) {
-    console.log("currentIndex", index);
-  }
-
-  gotToScrollIndex() {
-    this.viewport.scrollToIndex(
-      Math.floor(Math.random() * this.viewport.getDataLength()) + 1
-    );
-  }
+  constructor() {}
   ngOnInit() {}
+
+  fixedSizeData = FIXED_SIZE;
+
+  states$ = Observable.create(observer => {
+    observer.next(STATES);
+    observer.complete();
+  });
+
+  sortBy(prop: "name" | "capital") {
+    const sortedVals = STATES.map(s => ({ ...s })).sort((a, b) => {
+      const aProp = a[prop],
+        bProp = b[prop];
+      if (aProp < bProp) {
+        return -1;
+      } else if (aProp > bProp) {
+        return 1;
+      }
+      return 0;
+    });
+
+    this.states$ = Observable.create(observer => {
+      observer.next(sortedVals);
+      observer.complete();
+    });
+  }
 }

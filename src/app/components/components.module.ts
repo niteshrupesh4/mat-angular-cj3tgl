@@ -34,6 +34,6 @@ import { HttpClientModule } from "@angular/common/http";
     ListCommentReactiveFormComponent,
     ScrollPaginationComponent
   ],
-  providers: [NgxImageCompressService, DataService]
+  providers: [NgxImageCompressService,]
 })
 export class ComponentsModule {}

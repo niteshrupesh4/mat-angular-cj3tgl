@@ -4,7 +4,7 @@
 		<!-- <cdk-virtual-scroll-viewport itemSize="50" class="example-viewport">
 			<div *cdkVirtualFor="let item of items" class="example-item">{{item}}</div>
 		</cdk-virtual-scroll-viewport> -->
-		<cdk-virtual-scroll-viewport class="example-viewport" itemSize="72"
+		<!-- <cdk-virtual-scroll-viewport class="example-viewport" itemSize="72"
 			(scrolledIndexChange)="currentIndex($event)">
 
 			<mat-list>
@@ -25,6 +25,23 @@
 
 		<button mat-fab color="primary" (click)="gotToScrollIndex()">
   <mat-icon>play_arrow</mat-icon>
-</button>
+</button> -->
+
+		<ng-container *ngIf="states$ |async as allStates">
+			<cdk-virtual-scroll-viewport class="list-container lg" [itemSize]="52.5">
+
+				<div *cdkVirtualFor="let state of allStates;" class="list-group-item">
+					<div class="state">{{state.name}}</div>
+					<div class="capital">{{state.capital}}</div>
+				</div>
+			</cdk-virtual-scroll-viewport>
+
+			<div style="padding-top:20px;">
+				<button (click)="sortBy('name')" class="btn btn-info">Sort by state name</button>
+				<button (click)="sortBy('capital')" class="btn btn-info">Sort by state capital</button>
+				Total Size: {{allStates.length}}
+			</div>
+
+		</ng-container>
 	</mat-card-content>
 </mat-card>
