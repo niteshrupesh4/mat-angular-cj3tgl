@@ -21,6 +21,7 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
     FormsModule,
     AngularMultiSelectModule,
     ReactiveFormsModule,
+    InfiniteScrollModule
   ],
   declarations: [
     FormsComponent,

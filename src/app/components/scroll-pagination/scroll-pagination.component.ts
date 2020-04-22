@@ -22,7 +22,7 @@ export class ScrollPaginationComponent implements OnInit {
 
   addItems(startIndex, endIndex, _method) {
     for (let i = 0; i < this.sum; ++i) {
-      this.array[_method]([i, " ", this.generateWord()].join(""));
+      this.array[_method]([i, " ", "Demo testing "+i]);
     }
   }
 
@@ -55,8 +55,6 @@ export class ScrollPaginationComponent implements OnInit {
     this.direction = 'up';
   }
 
-  generateWord() {
-    return chance.word();
-  }
+  
 
 }
