@@ -13,16 +13,18 @@ export class ScrollPaginationComponent implements OnInit {
   scrollUpDistance = 2;
   direction = "";
   modalOpen = false;
-  
+
   constructor() {
     this.appendItems(0, this.sum);
   }
 
   ngOnInit() {}
 
+  // nisVersion = nisPackage.dependencies['ngx-infinite-scroll'];
+
   addItems(startIndex, endIndex, _method) {
     for (let i = 0; i < this.sum; ++i) {
-      this.array[_method]([i, " ", "Demo testing "+i]);
+      this.array[_method]([i, " ", this.generateWord()].join(""));
     }
   }
 
@@ -30,31 +32,34 @@ export class ScrollPaginationComponent implements OnInit {
     this.addItems(startIndex, endIndex, "push");
   }
 
-  
   prependItems(startIndex, endIndex) {
-    this.addItems(startIndex, endIndex, 'unshift');
+    this.addItems(startIndex, endIndex, "unshift");
   }
 
-  onScrollDown (ev) {
-    console.log('scrolled down!!', ev);
+  onScrollDown(ev) {
+    console.log("scrolled down!!", ev);
 
     // add another 20 items
     const start = this.sum;
     this.sum += 20;
     this.appendItems(start, this.sum);
-    
-    this.direction = 'down'
+
+    this.direction = "down";
   }
-  
+
   onUp(ev) {
-    console.log('scrolled up!', ev);
+    console.log("scrolled up!", ev);
     const start = this.sum;
     this.sum += 20;
     this.prependItems(start, this.sum);
-  
-    this.direction = 'up';
+
+    this.direction = "up";
+  }
+  generateWord() {
+    return "chance demo test";
   }
 
-  
-
+  toggleModal() {
+    this.modalOpen = !this.modalOpen;
+  }
 }

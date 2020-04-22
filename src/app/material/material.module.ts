@@ -38,6 +38,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatDialogModule, MatSnackBarModule } from "@angular/material";
 import { MatVideoModule } from 'mat-video';
+import {ScrollingModule} from '@angular/cdk/scrolling';
 
 /**
  * NgModule that includes all Material modules that are required to serve the demo-app.
@@ -84,7 +85,7 @@ import { MatVideoModule } from 'mat-video';
     OverlayModule,
     PlatformModule,
     PortalModule,
-    MatVideoModule
+    MatVideoModule,
   ]
 })
 export class MaterialModule { }
