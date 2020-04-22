@@ -5,6 +5,7 @@ import { VideoPlayerComponent } from "./video-player/video-player.component";
 import { MultiselectDropdownComponent } from "./multiselect-dropdown/multiselect-dropdown.component";
 import { ImageCompressComponent } from "./image-compress/image-compress.component";
 import { ListCommentReactiveFormComponent } from "./list-comment-reactive-form/list-comment-reactive-form.component";
+import { ScrollPaginationComponent } from "./scroll-pagination/scroll-pagination.component";
 
 const routes: Routes = [
   {
@@ -26,6 +27,10 @@ const routes: Routes = [
   {
     path: "list-comment",
     component: ListCommentReactiveFormComponent
+  },
+  {
+    path: "scroll-pagination",
+    component: ScrollPaginationComponent
   }
 ];
 

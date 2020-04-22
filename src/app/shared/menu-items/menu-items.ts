@@ -93,6 +93,12 @@ const menu = [
         type: "link",
         name: "List Comment",
         icon: "comment"
+      },
+      {
+        state: "scroll-pagination",
+        type: "link",
+        name: "List Comment",
+        icon: "comment"
       }
     ]
   },
