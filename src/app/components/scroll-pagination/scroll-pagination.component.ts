@@ -1,4 +1,7 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, ViewChild } from "@angular/core";
+import { DataService, Pokemon } from "../data.service";
+import { CdkVirtualScrollViewport } from "@angular/cdk/scrolling";
+import { Observable } from "rxjs";
 
 @Component({
   selector: "app-scroll-pagination",
@@ -6,60 +9,24 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./scroll-pagination.component.scss"]
 })
 export class ScrollPaginationComponent implements OnInit {
-  array = [];
-  sum = 100;
-  throttle = 300;
-  scrollDistance = 1;
-  scrollUpDistance = 2;
-  direction = "";
-  modalOpen = false;
+  pokemons: Observable<Pokemon>;
 
-  constructor() {
-    this.appendItems(0, this.sum);
+  @ViewChild(CdkVirtualScrollViewport) viewport: CdkVirtualScrollViewport;
+
+  constructor(private pkmService: DataService) {
+    this.pokemons = this.pkmService.fetchPokemons();
   }
 
+  idTrackFn = (pokemon: Pokemon) => pokemon.number;
+
+  currentIndex(index) {
+    console.log("currentIndex", index);
+  }
+
+  gotToScrollIndex() {
+    this.viewport.scrollToIndex(
+      Math.floor(Math.random() * this.viewport.getDataLength()) + 1
+    );
+  }
   ngOnInit() {}
-
-  // nisVersion = nisPackage.dependencies['ngx-infinite-scroll'];
-
-  addItems(startIndex, endIndex, _method) {
-    for (let i = 0; i < this.sum; ++i) {
-      this.array[_method]([i, " ", this.generateWord()].join(""));
-    }
-  }
-
-  appendItems(startIndex, endIndex) {
-    this.addItems(startIndex, endIndex, "push");
-  }
-
-  prependItems(startIndex, endIndex) {
-    this.addItems(startIndex, endIndex, "unshift");
-  }
-
-  onScrollDown(ev) {
-    console.log("scrolled down!!", ev);
-
-    // add another 20 items
-    const start = this.sum;
-    this.sum += 20;
-    this.appendItems(start, this.sum);
-
-    this.direction = "down";
-  }
-
-  onUp(ev) {
-    console.log("scrolled up!", ev);
-    const start = this.sum;
-    this.sum += 20;
-    this.prependItems(start, this.sum);
-
-    this.direction = "up";
-  }
-  generateWord() {
-    return "chance demo test";
-  }
-
-  toggleModal() {
-    this.modalOpen = !this.modalOpen;
-  }
 }

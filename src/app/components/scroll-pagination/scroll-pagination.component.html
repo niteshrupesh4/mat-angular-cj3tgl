@@ -1,29 +1,30 @@
 <mat-card>
 	<mat-card-content>
 		<mat-card-title>Scroll Pagination</mat-card-title>
-		<!-- <div class="search-results" infiniteScroll [infiniteScrollDistance]="scrollDistance"
-			[infiniteScrollUpDistance]="scrollUpDistance" [infiniteScrollThrottle]="throttle"
-			(scrolled)="onScrollDown()" (scrolledUp)="onUp()">
-			<p *ngFor="let i of array">
-				{{ i }}
-			</p>
-		</div> -->
-		<h1 class="title well">
-			ngx-infinite-scroll v-
-			<section>
-				<small>items: {{sum}}, now triggering scroll: {{direction}}</small>
-			</section>
-			<section>
-				<button class="btn btn-info">Open Infinite Scroll in Modal</button>
-			</section>
-		</h1>
-		<!-- <modal *ngIf="modalOpen" (onClose)="toggleModal()"></modal> -->
-		<div class="search-results" infinite-scroll [infiniteScrollDistance]="scrollDistance"
-			[infiniteScrollUpDistance]="scrollUpDistance" [infiniteScrollThrottle]="throttle"
-			(scrolled)="onScrollDown()" (scrolledUp)="onUp()">
-			<p *ngFor="let i of array">
-				{{ i }}
-			</p>
-		</div>
+		<!-- <cdk-virtual-scroll-viewport itemSize="50" class="example-viewport">
+			<div *cdkVirtualFor="let item of items" class="example-item">{{item}}</div>
+		</cdk-virtual-scroll-viewport> -->
+		<cdk-virtual-scroll-viewport class="example-viewport" itemSize="72"
+			(scrolledIndexChange)="currentIndex($event)">
+
+			<mat-list>
+				<ng-container *cdkVirtualFor="let pokemon of pokemons | async; trackBy: idTrackFn">
+					<mat-list-item>
+						<img matListAvatar [src]="pokemon.ThumbnailImage" [alt]="pokemon.ThumbnailAltText" [matTooltip]="pokemon.name">
+						<h3 matLine> {{ pokemon.name }} </h3>
+						<p matLine>
+							<span>{{ pokemon.number }}</span>
+							<span class="demo-2"> -- {{ pokemon.type }} </span>
+						</p>
+
+						<mat-checkbox [checked]="pokemon.number % 2" color="primary"></mat-checkbox>
+					</mat-list-item>
+				</ng-container>
+			</mat-list>
+		</cdk-virtual-scroll-viewport>
+
+		<button mat-fab color="primary" (click)="gotToScrollIndex()">
+  <mat-icon>play_arrow</mat-icon>
+</button>
 	</mat-card-content>
 </mat-card>

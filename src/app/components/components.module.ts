@@ -12,6 +12,8 @@ import { NgxImageCompressService } from "ngx-image-compress";
 import { ListCommentReactiveFormComponent } from './list-comment-reactive-form/list-comment-reactive-form.component';
 import { ScrollPaginationComponent } from './scroll-pagination/scroll-pagination.component';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { DataService } from './data.service';
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
   imports: [
@@ -21,7 +23,8 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
     FormsModule,
     AngularMultiSelectModule,
     ReactiveFormsModule,
-    InfiniteScrollModule
+    InfiniteScrollModule,
+    HttpClientModule
   ],
   declarations: [
     FormsComponent,
@@ -31,6 +34,6 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
     ListCommentReactiveFormComponent,
     ScrollPaginationComponent
   ],
-  providers: [NgxImageCompressService]
+  providers: [NgxImageCompressService, DataService]
 })
 export class ComponentsModule {}
