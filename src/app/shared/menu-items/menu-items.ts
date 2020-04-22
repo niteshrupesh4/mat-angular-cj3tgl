@@ -97,7 +97,7 @@ const menu = [
       {
         state: "scroll-pagination",
         type: "link",
-        name: "List Comment",
+        name: "Scroll-agination",
         icon: "comment"
       }
     ]
