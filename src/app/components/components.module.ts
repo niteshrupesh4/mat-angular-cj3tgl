@@ -11,6 +11,7 @@ import { ImageCompressComponent } from "./image-compress/image-compress.componen
 import { NgxImageCompressService } from "ngx-image-compress";
 import { ListCommentReactiveFormComponent } from './list-comment-reactive-form/list-comment-reactive-form.component';
 import { ScrollPaginationComponent } from './scroll-pagination/scroll-pagination.component';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 @NgModule({
   imports: [
@@ -19,7 +20,7 @@ import { ScrollPaginationComponent } from './scroll-pagination/scroll-pagination
     MaterialModule,
     FormsModule,
     AngularMultiSelectModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   declarations: [
     FormsComponent,
