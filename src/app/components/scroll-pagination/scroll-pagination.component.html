@@ -1,8 +1,12 @@
 <mat-card>
 	<mat-card-content>
-		<mat-card-title>Scroll Pagi</mat-card-title>
-		<div>
-      Test
+		<mat-card-title>Scroll Pagination</mat-card-title>
+		<div class="search-results" infiniteScroll [infiniteScrollDistance]="scrollDistance"
+			[infiniteScrollUpDistance]="scrollUpDistance" [infiniteScrollThrottle]="throttle"
+			(scrolled)="onScrollDown()" (scrolledUp)="onUp()">
+			<p *ngFor="let i of array">
+				{{ i }}
+			</p>
 		</div>
 	</mat-card-content>
 </mat-card>
