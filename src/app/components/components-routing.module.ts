@@ -6,6 +6,7 @@ import { MultiselectDropdownComponent } from "./multiselect-dropdown/multiselect
 import { ImageCompressComponent } from "./image-compress/image-compress.component";
 import { ListCommentReactiveFormComponent } from "./list-comment-reactive-form/list-comment-reactive-form.component";
 import { ScrollPaginationComponent } from "./scroll-pagination/scroll-pagination.component";
+import { WebcamComponent } from "./webcam/webcam.component";
 
 const routes: Routes = [
   {
@@ -31,6 +32,10 @@ const routes: Routes = [
   {
     path: "scroll-pagination",
     component: ScrollPaginationComponent
+  },
+  {
+    path: "webcam",
+    component: WebcamComponent
   }
 ];
 

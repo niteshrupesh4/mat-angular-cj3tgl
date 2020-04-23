@@ -14,6 +14,7 @@ import { ScrollPaginationComponent } from './scroll-pagination/scroll-pagination
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { DataService } from './data.service';
 import { HttpClientModule } from "@angular/common/http";
+import { WebcamComponent } from './webcam/webcam.component';
 
 @NgModule({
   imports: [
@@ -32,7 +33,8 @@ import { HttpClientModule } from "@angular/common/http";
     MultiselectDropdownComponent,
     ImageCompressComponent,
     ListCommentReactiveFormComponent,
-    ScrollPaginationComponent
+    ScrollPaginationComponent,
+    WebcamComponent
   ],
   providers: [NgxImageCompressService,]
 })
