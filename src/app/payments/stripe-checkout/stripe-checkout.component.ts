@@ -6,7 +6,7 @@ import {
   ElementsOptions
 } from "ngx-stripe";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 
 @Component({
   selector: "app-stripe-checkout",
@@ -57,5 +57,40 @@ export class StripeCheckoutComponent implements OnInit {
     });
   }
 
-  
+  buy() {
+    const name = this.stripeTest.get("name").value;
+    let headers = new HttpHeaders({
+      client_secret:
+        "5c3d46a7c0d6dc57a9d817a1dec383b027c5c0ef476084ec9264842790ee271b"
+    });
+    let options = { headers: headers };
+
+    this.stripeService.createToken(this.card, { name }).subscribe(obj => {
+      debugger;
+      if (obj) {
+        console.log("Token is --> ", obj.token.id);
+
+        this.http
+          .post(
+            "https://node-demo.niteshrupesh.repl.co/app/api/v1/user/charge",
+            {
+              token: obj.token.id
+            },
+            options
+          )
+          .subscribe(
+            res => {
+              console.log("The response from server is ", res);
+              console.log("Payment Done");
+            },
+            err => {
+              console.log("The error is ", err);
+            }
+          );
+      } else {
+        // Error creating the token
+        console.log("Error comes ");
+      }
+    });
+  }
 }
