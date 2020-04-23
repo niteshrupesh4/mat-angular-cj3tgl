@@ -99,6 +99,12 @@ const menu = [
         type: "link",
         name: "Scroll Pagination",
         icon: "comment"
+      },
+      {
+        state: "webcam",
+        type: "link",
+        name: "Webcam",
+        icon: "camera_enhance"
       }
     ]
   },
