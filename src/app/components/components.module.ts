@@ -12,7 +12,6 @@ import { NgxImageCompressService } from "ngx-image-compress";
 import { ListCommentReactiveFormComponent } from './list-comment-reactive-form/list-comment-reactive-form.component';
 import { ScrollPaginationComponent } from './scroll-pagination/scroll-pagination.component';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
-import { DataService } from './data.service';
 import { HttpClientModule } from "@angular/common/http";
 import { WebcamComponent } from './webcam/webcam.component';
 
