@@ -2,7 +2,7 @@
 	<mat-card-content>
 		<mat-card-title>Webcam</mat-card-title>
 		<div>
-			<webcam [height]="300" [width]="300" [trigger]="triggerObservable" (imageCapture)="handleImage($event)"
+			<webcam [height]="300" [width]="00" [trigger]="triggerObservable" (imageCapture)="handleImage($event)"
 				*ngIf="showWebcam" [allowCameraSwitch]="allowCameraSwitch" [switchCamera]="nextWebcamObservable"
 				[videoOptions]="videoOptions" [imageQuality]="1" (cameraSwitched)="cameraWasSwitched($event)"
 				(initError)="handleInitError($event)"></webcam>
@@ -13,13 +13,10 @@
 			<button class="actionBtn" (click)="showNextWebcam(true);" [disabled]="!multipleWebcamsAvailable">Next Webcam</button>
 			<input id="cameraSwitchCheckbox" type="checkbox" [(ngModel)]="allowCameraSwitch"><label for="cameraSwitchCheckbox">Allow Camera Switch</label>
 			<br/>
-    DeviceId:
-			<mat-form-field appearance="outline">
-				<input matInput placeholder="Placeholder" [(ngModel)]="deviceId">
-			</mat-form-field>
-				<button (click)="showNextWebcam(deviceId);">Activate</button>
+    DeviceId: <input id="deviceId" type="text" [(ngModel)]="deviceId" style="width: 500px">
+			<button (click)="showNextWebcam(deviceId);">Activate</button>
 		</div>
-		<div class="snapshot" *ngIf="webcamImage">
+		<div class="snapshot">
 			<h2>Nice one!</h2>
 			<img [height]="300" [width]="300" [src]="webcamImage.imageAsDataUrl"/>
 </div>

@@ -9,11 +9,12 @@ import { MultiselectDropdownComponent } from "./multiselect-dropdown/multiselect
 import { AngularMultiSelectModule } from "angular2-multiselect-dropdown";
 import { ImageCompressComponent } from "./image-compress/image-compress.component";
 import { NgxImageCompressService } from "ngx-image-compress";
-import { ListCommentReactiveFormComponent } from './list-comment-reactive-form/list-comment-reactive-form.component';
-import { ScrollPaginationComponent } from './scroll-pagination/scroll-pagination.component';
-import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { ListCommentReactiveFormComponent } from "./list-comment-reactive-form/list-comment-reactive-form.component";
+import { ScrollPaginationComponent } from "./scroll-pagination/scroll-pagination.component";
+import { InfiniteScrollModule } from "ngx-infinite-scroll";
 import { HttpClientModule } from "@angular/common/http";
-import { WebcamComponent } from './webcam/webcam.component';
+import { WebcamComponent } from "./webcam/webcam.component";
+import { WebcamModule } from "ngx-webcam";
 
 @NgModule({
   imports: [
@@ -24,7 +25,8 @@ import { WebcamComponent } from './webcam/webcam.component';
     AngularMultiSelectModule,
     ReactiveFormsModule,
     InfiniteScrollModule,
-    HttpClientModule
+    HttpClientModule,
+    WebcamModule
   ],
   declarations: [
     FormsComponent,
@@ -35,6 +37,6 @@ import { WebcamComponent } from './webcam/webcam.component';
     ScrollPaginationComponent,
     WebcamComponent
   ],
-  providers: [NgxImageCompressService,]
+  providers: [NgxImageCompressService]
 })
 export class ComponentsModule {}
