@@ -14,7 +14,9 @@ export const AppRoutes: Routes = [
       {
         path: "",
         loadChildren: () =>
-          import("./material-component/material-component.module").then( m => m.MaterialComponentModule)
+          import("./material-component/material-component.module").then(
+            m => m.MaterialComponentModule
+          )
       },
       {
         path: "dashboard",
@@ -24,7 +26,12 @@ export const AppRoutes: Routes = [
       {
         path: "",
         loadChildren: () =>
-          import("./components/components.module").then( m => m.ComponentsModule)
+          import("./components/components.module").then(m => m.ComponentsModule)
+      },
+      {
+        path: "",
+        loadChildren: () =>
+          import("./payments/payments.module").then(m => m.PaymentsModule)
       }
     ]
   }
