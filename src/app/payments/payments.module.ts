@@ -4,6 +4,7 @@ import { PaymentsRoutingModule } from './payemnts-routing.module';
 import { MaterialModule } from '../material/material.module';
 import { FormsModule } from '@angular/forms';
 import { StripeCheckoutComponent } from './stripe-checkout/stripe-checkout.component';
+import { PaymentsService } from './payments.service';
 
 @NgModule({
   imports: [
@@ -12,6 +13,7 @@ import { StripeCheckoutComponent } from './stripe-checkout/stripe-checkout.compo
     FormsModule,
     MaterialModule
   ],
-  declarations: [StripeCheckoutComponent]
+  declarations: [StripeCheckoutComponent],
+  providers: [PaymentsService]
 })
 export class PaymentsModule { }
