@@ -2,7 +2,7 @@
 	<mat-card-content>
 		<mat-card-title>Webcam</mat-card-title>
 		<div>
-			<webcam [height]="500" [width]="500" [trigger]="triggerObservable" (imageCapture)="handleImage($event)"
+			<webcam [height]="300" [width]="300" [trigger]="triggerObservable" (imageCapture)="handleImage($event)"
 				*ngIf="showWebcam" [allowCameraSwitch]="allowCameraSwitch" [switchCamera]="nextWebcamObservable"
 				[videoOptions]="videoOptions" [imageQuality]="1" (cameraSwitched)="cameraWasSwitched($event)"
 				(initError)="handleInitError($event)"></webcam>
