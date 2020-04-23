@@ -109,6 +109,13 @@ const menu = [
     ]
   },
   {
+    name: "Payments",
+    icon: "money",
+    subMenu: [
+      { state: "stripe-checkout", name: "stripeut", type: "link", icon: "money" }
+    ]
+  },
+  {
     name: "Material",
     icon: "bubble_chart",
     subMenu: [
@@ -162,7 +169,7 @@ export class MenuItems {
   getMenuitem(): Menu[] {
     return MENUITEMS;
   }
-  
+
   getMenuWithSubmenu(): any[] {
     return menu;
   }
