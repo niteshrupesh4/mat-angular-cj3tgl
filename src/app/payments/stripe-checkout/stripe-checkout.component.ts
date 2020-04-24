@@ -66,7 +66,6 @@ export class StripeCheckoutComponent implements OnInit {
     let options = { headers: headers };
 
     this.stripeService.createToken(this.card, { name }).subscribe(obj => {
-      debugger;
       if (obj) {
         console.log("Token is --> ", obj.token.id);
 
