@@ -31,7 +31,8 @@ export class StripeCheckoutComponent implements OnInit {
 
   ngOnInit() {
     this.stripeTest = this.fb.group({
-      name: ["", [Validators.required]]
+      name: ["", [Validators.required]],
+      email: ["", [Validators.required]]
     });
     this.stripeService.elements(this.elementsOptions).subscribe(elements => {
       this.elements = elements;
@@ -64,16 +65,17 @@ export class StripeCheckoutComponent implements OnInit {
         "5c3d46a7c0d6dc57a9d817a1dec383b027c5c0ef476084ec9264842790ee271b"
     });
     let options = { headers: headers };
-
+    debugger;
     this.stripeService.createToken(this.card, { name }).subscribe(obj => {
       if (obj) {
         console.log("Token is --> ", obj.token.id);
 
         this.http
           .post(
-            "https://node-demo.niteshrupesh.repl.co/app/api/v1/user/charge",
+            "https://node-demo.niteshrupesh.repl.co/app/api/v1/user/cardcharge",
             {
-              token: obj.token.id
+              token: obj.token.id,
+              email: this.stripeTest.get("email").value
             },
             options
           )

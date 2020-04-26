@@ -5,6 +5,7 @@
 			<form novalidate (ngSubmit)="buy($event)" [formGroup]="stripeTest">
 				<div class="col-lg-6">
 					<input class="form-control" type="text" formControlName="name" placeholder="Jane Doe">
+          		<input class="form-control" type="text" formControlName="email" placeholder="test@yopmail.com">
 </div>
 					<div class="col-lg-6">
 						<div id="card-element" class="field"></div>
@@ -16,5 +17,6 @@ BUY
 					</div>
 			</form>
 		</div>
+
 	</mat-card-content>
 </mat-card>
