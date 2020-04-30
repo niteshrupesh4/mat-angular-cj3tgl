@@ -15,6 +15,7 @@ import { InfiniteScrollModule } from "ngx-infinite-scroll";
 import { HttpClientModule } from "@angular/common/http";
 import { WebcamComponent } from "./webcam/webcam.component";
 import { WebcamModule } from "ngx-webcam";
+import { SocialShareButtonComponent } from './social-share-button/social-share-button.component';
 
 @NgModule({
   imports: [
@@ -35,7 +36,8 @@ import { WebcamModule } from "ngx-webcam";
     ImageCompressComponent,
     ListCommentReactiveFormComponent,
     ScrollPaginationComponent,
-    WebcamComponent
+    WebcamComponent,
+    SocialShareButtonComponent
   ],
   providers: [NgxImageCompressService]
 })
