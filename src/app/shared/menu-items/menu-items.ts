@@ -105,6 +105,12 @@ const menu = [
         type: "link",
         name: "Webcam",
         icon: "camera_enhance"
+      },
+      {
+        state: "social-share",
+        type: "link",
+        name: "Social Share",
+        icon: "camera_enhance"
       }
     ]
   },

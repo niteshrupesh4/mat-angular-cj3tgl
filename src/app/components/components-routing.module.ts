@@ -7,6 +7,7 @@ import { ImageCompressComponent } from "./image-compress/image-compress.componen
 import { ListCommentReactiveFormComponent } from "./list-comment-reactive-form/list-comment-reactive-form.component";
 import { ScrollPaginationComponent } from "./scroll-pagination/scroll-pagination.component";
 import { WebcamComponent } from "./webcam/webcam.component";
+import { SocialShareButtonComponent } from "./social-share-button/social-share-button.component";
 
 const routes: Routes = [
   {
@@ -36,6 +37,10 @@ const routes: Routes = [
   {
     path: "webcam",
     component: WebcamComponent
+  },
+  {
+    path: "social-share",
+    component: SocialShareButtonComponent
   }
 ];
 
