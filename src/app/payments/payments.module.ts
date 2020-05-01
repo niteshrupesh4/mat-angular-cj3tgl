@@ -14,7 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
     PaymentsRoutingModule,
     FormsModule,
     MaterialModule,
-    NgxStripeModule.forRoot('pk_test_A8tTtxjDU53fx2ubFGqeUCnI'),
+    NgxStripeModule.forRoot('pk_test_KhFdLBRZKOdRAXszK3Z4j0rO006cNillwR'),
     HttpClientModule,
     ReactiveFormsModule
   ],
