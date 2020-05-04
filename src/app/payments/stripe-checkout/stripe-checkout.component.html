@@ -2,18 +2,21 @@
 	<mat-card-content>
 		<mat-card-title>Stipe Checkout</mat-card-title>
 		<div class="container">
+      	<button class="btn btn-success" (click)="bankTokenCreate()" type="button">
+            Bank Token
+        </button>
 			<form novalidate (ngSubmit)="buy($event)" [formGroup]="stripeTest">
 				<div class="col-lg-6">
 					<input class="form-control" type="text" formControlName="name" placeholder="Jane Doe">
-          		<input class="form-control" type="text" formControlName="email" placeholder="test@yopmail.com">
-</div>
+					<input class="form-control" type="text" formControlName="email" placeholder="test@yopmail.com">
+        </div>
 					<div class="col-lg-6">
 						<div id="card-element" class="field"></div>
 					</div>
 					<div class="col-lg-12">
 						<button class="btn btn-success" type="submit">
-BUY
-</button>
+            BUY
+            </button>
 					</div>
 			</form>
 		</div>
