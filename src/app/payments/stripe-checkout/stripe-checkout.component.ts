@@ -98,13 +98,29 @@ export class StripeCheckoutComponent implements OnInit {
   bankTokenCreate(){
     this.stripeService.createToken('bank_account',{
       country: 'AU',
-      currency: 'A',
+      currency: 'AUD',
       account_holder_name: 'Jenny Rosen',
       account_holder_type: 'individual',
       routing_number: '110000',
       account_number: '000123456',
     }).subscribe(obj => {
       console.log(obj)
+       this.http
+          .post(
+            "http://localhost:3600/app/api/v1/user/create-account",
+            {
+              external_account: obj.token.id,
+            }
+          )
+          .subscribe(
+            res => {
+              console.log("The response from server is ", res);
+              console.log("Payment Done");
+            },
+            err => {
+              console.log("The error is ", err);
+            }
+          );
     },error => console.log(error))
 
   }
