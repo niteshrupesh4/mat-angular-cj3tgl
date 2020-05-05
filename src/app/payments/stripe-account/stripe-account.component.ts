@@ -16,7 +16,9 @@ export class StripeAccountComponent implements OnInit {
     private http: HttpClient
   ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.createForm();
+  }
 
   createForm() {
     this.accountForm = this.fb.group({
@@ -59,9 +61,11 @@ export class StripeAccountComponent implements OnInit {
   createAccount(bankToken) {
     this.accountForm.value.external_account = bankToken;
     this.debug("Creating account...");
-    this.http.post("http://localhost:4242/create-account",
-      {body: JSON.stringify(this.accountForm.value)}
-      ).subscribe(response => {
+    this.http
+      .post("http://localhost:4242/create-account", {
+        body: this.accountForm.value)
+      })
+      .subscribe(response => {
         this.debug(JSON.stringify(response, null, 2));
       });
   }
