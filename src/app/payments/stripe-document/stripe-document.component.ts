@@ -13,19 +13,19 @@ export class StripeDocumentComponent implements OnInit {
 
   ngOnInit() {}
   onFileSelect(event) {
-    this.selectedFiles = event.target.files;
     this.file = event.target.files;
+    this.u
   }
 
   uploadDocument() {
     var fd = new FormData();
-    // fd.set('purpose', 'identity_document');
+    fd.set('purpose', 'identity_document');
     // fd.set('file', document.getElementById('file').files[0]);
     this.debug("Uploading document...");
     return fetch("https://files.stripe.com/v1/files", {
       method: "POST",
       headers: {
-        Authorization: `Bearer ${stripe._apiKey}`
+        Authorization: `Bearer ${this.stripeService.setKey}`
       },
       body: fd
     })
