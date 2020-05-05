@@ -8,6 +8,7 @@ import { PaymentsService } from './payments.service';
 import { NgxStripeModule } from 'ngx-stripe';
 import { HttpClientModule } from '@angular/common/http';
 import { StripeAccountComponent } from './stripe-account/stripe-account.component';
+import { StripeDocumentComponent } from './stripe-document/stripe-document.component';
 
 @NgModule({
   imports: [
@@ -19,7 +20,7 @@ import { StripeAccountComponent } from './stripe-account/stripe-account.componen
     HttpClientModule,
     ReactiveFormsModule
   ],
-  declarations: [StripeCheckoutComponent, StripeAccountComponent],
+  declarations: [StripeCheckoutComponent, StripeAccountComponent, StripeDocumentComponent],
   providers: [PaymentsService]
 })
 export class PaymentsModule { }

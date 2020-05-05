@@ -119,7 +119,8 @@ const menu = [
     icon: "money",
     subMenu: [
       { state: "stripe-checkout", name: "Stripe", type: "link", icon: "money" },
-      { state: "stripe-account", name: "Stripe Account", type: "link", icon: "money" }
+      { state: "stripe-account", name: "Stripe Account", type: "link", icon: "money" },
+      { state: "stripe-document", name: "Stripe Document", type: "link", icon: "money" }
     ]
   },
   {
