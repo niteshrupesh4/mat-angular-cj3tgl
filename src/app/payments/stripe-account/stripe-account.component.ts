@@ -63,7 +63,7 @@ export class StripeAccountComponent implements OnInit {
     this.debug("Creating account...");
     this.http
       .post("http://localhost:4242/create-account", {
-        body: this.accountForm.value)
+        body: this.accountForm.value
       })
       .subscribe(response => {
         this.debug(JSON.stringify(response, null, 2));
