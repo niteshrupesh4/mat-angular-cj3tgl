@@ -23,16 +23,15 @@ export class StripeDocumentComponent implements OnInit {
     });
     let options = { headers: headers };
     var fd = new FormData();
-    fd.set("purpose", "identity_document");
-    fd.set("file", this.file);
+    fd.append('purpose', 'identity_document');
+    fd.append('file', this.file[0]);
     debugger;
     this.debug("Uploading document...");
     this.http
       .post(
         "https://files.stripe.com/v1/files",
         {
-          purpose: "identity_document",
-          file: this.file
+          body: fd
         },
         options
       )
