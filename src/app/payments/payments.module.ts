@@ -7,6 +7,7 @@ import { StripeCheckoutComponent } from './stripe-checkout/stripe-checkout.compo
 import { PaymentsService } from './payments.service';
 import { NgxStripeModule } from 'ngx-stripe';
 import { HttpClientModule } from '@angular/common/http';
+import { StripeAccountComponent } from './stripe-account/stripe-account.component';
 
 @NgModule({
   imports: [
@@ -18,7 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule,
     ReactiveFormsModule
   ],
-  declarations: [StripeCheckoutComponent],
+  declarations: [StripeCheckoutComponent, StripeAccountComponent],
   providers: [PaymentsService]
 })
 export class PaymentsModule { }
