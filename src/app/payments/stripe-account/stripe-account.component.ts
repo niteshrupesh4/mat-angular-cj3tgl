@@ -44,14 +44,15 @@ export class StripeAccountComponent implements OnInit {
     this.debug("Creating bank account...");
     this.stripeService
       .createToken("bank_account", {
-        country: "us",
-        currency: "USD",
+        country: "AU",
+        currency: "AUS",
         account_number: this.accountForm.value.account_number,
         routing_number: this.accountForm.value.routing_number,
-        account_holder_type: "company",
+        account_holder_type: "individual",
         account_holder_name: this.accountForm.value.name
       })
       .subscribe(obj => {
+        debugger;
         this.debug("Created bank account" + obj.token.id); //btok_xxx
         this.createAccount(obj.token.id);
       });

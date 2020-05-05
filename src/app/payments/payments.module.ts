@@ -15,7 +15,7 @@ import { StripeAccountComponent } from './stripe-account/stripe-account.componen
     PaymentsRoutingModule,
     FormsModule,
     MaterialModule,
-    NgxStripeModule.forRoot('pk_test_KhFdLBRZKOdRAXszK3Z4j0rO006cNillwR'),
+    NgxStripeModule.forRoot('pk_test_A8tTtxjDU53fx2ubFGqeUCnI'),
     HttpClientModule,
     ReactiveFormsModule
   ],
