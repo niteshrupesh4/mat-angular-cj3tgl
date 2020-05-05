@@ -22,9 +22,9 @@ export class StripeDocumentComponent implements OnInit {
       Authorization: `Bearer ${this.stripeService.key}`
     });
     let options = { headers: headers };
-    var fd = new FormData();
-    fd.append('purpose', 'identity_document');
-    fd.append('file', this.file[0]);
+    var fd: FormData = new FormData(); 
+    fd.set("purpose", "identity_document");
+    fd.set("file", this.file[0]);
     debugger;
     this.debug("Uploading document...");
     this.http
