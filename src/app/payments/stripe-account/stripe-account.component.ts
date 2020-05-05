@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { StripeService } from "ngx-stripe";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 
 @Component({
   selector: "app-stripe-account",
@@ -27,7 +27,7 @@ export class StripeAccountComponent implements OnInit {
       email: ["elon@yopmail.com", Validators.required],
       url: ["http://rocketrides.io", Validators.required],
       mcc: ["7623", Validators.required],
-      phone: ["0397734503", Validators.required],
+      phone: ["9867654376", Validators.required],
       line1: ["40 Parkes Road", Validators.required],
       line2: ["", Validators.required],
       city: ["Southbank", Validators.required],
@@ -45,14 +45,13 @@ export class StripeAccountComponent implements OnInit {
     this.stripeService
       .createToken("bank_account", {
         country: "AU",
-        currency: "AUS",
+        currency: "aud",
         account_number: this.accountForm.value.account_number,
         routing_number: this.accountForm.value.routing_number,
         account_holder_type: "individual",
         account_holder_name: this.accountForm.value.name
       })
       .subscribe(obj => {
-        debugger;
         this.debug("Created bank account" + obj.token.id); //btok_xxx
         this.createAccount(obj.token.id);
       });
@@ -60,12 +59,21 @@ export class StripeAccountComponent implements OnInit {
 
   // - create account
   createAccount(bankToken) {
+     let headers = new HttpHeaders({
+      client_secret:
+        "5c3d46a7c0d6dc57a9d817a1dec383b027c5c0ef476084ec9264842790ee271b"
+    });
+    let options = { headers: headers };
     this.accountForm.value.external_account = bankToken;
     this.debug("Creating account...");
     this.http
-      .post("http://localhost:4242/create-account", {
-        body: this.accountForm.value
-      })
+      .post(
+        "https://node-demo.niteshrupesh.repl.co/app/api/v1/user/create-account",
+        {
+          body: this.accountForm.value
+        },
+        options
+      )
       .subscribe(response => {
         this.debug(JSON.stringify(response, null, 2));
       });
