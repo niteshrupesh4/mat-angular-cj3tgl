@@ -20,46 +20,16 @@ export class StripeDocumentComponent implements OnInit {
 
   uploadDocument() {
     this.debug("Uploading document...");
+    this.currentFileUpload = this.file[0];
     const payload = new FormData();
     payload.append("purpose", "identity_document");
     payload.append("file", this.currentFileUpload, this.currentFileUpload.name);
-    this.http.post("https://files.stripe.com/v1/files", payload, {
+
+    this.http
+      .post("https://files.stripe.com/v1/files", payload, {
         headers: {
-  "business_type": "individual",
-  "individual": {
-    "address": {
-      "city": "mmmmmm",
-      "country": "AU",
-      "line1": "address 1",
-      "line2": "Address 2",
-      "postal_code": "0200",
-      "state": "Victoria"
-    },
-    "dob": {
-      "day": "**",
-      "month": "*",
-      "year": "****"
-    },
-    "email": "abc@gmail.com",
-    "first_name": "Arup11",
-    "last_name": "Das",
-    "phone": "+61488858880",
-    "verification": {
-      "document": {
-        "front": "file_1GfM4sIxJbILw13VE4Tptalq",
-        "back": "file_1GfM51IxJbILw13VykwxIoNj"
-      },
-      "additional_document": {
-        "front": "file_1GfM56IxJbILw13VMPwtgCAf"
-      }
-    }
-  },
-  "business_profile": {
-    "mcc": "5734",
-    "product_description": "shoes",
-    "url": "www.aaabb.com"
-  }
-}
+          Authorization: `Bearer ${this.stripeService.key}`
+        }
       })
       .subscribe((response: any) => {
         this.debug(JSON.stringify(response, null, 2));
