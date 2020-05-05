@@ -118,7 +118,8 @@ const menu = [
     name: "Payments",
     icon: "money",
     subMenu: [
-      { state: "stripe-checkout", name: "Stripe", type: "link", icon: "money" }
+      { state: "stripe-checkout", name: "Stripe", type: "link", icon: "money" },
+      { state: "stripe-account", name: "Stripe ", type: "link", icon: "money" }
     ]
   },
   {
