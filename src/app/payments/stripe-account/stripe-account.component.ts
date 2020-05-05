@@ -22,25 +22,25 @@ export class StripeAccountComponent implements OnInit {
 
   createForm() {
     this.accountForm = this.fb.group({
-      name: ["Demo Inc", Validators.required],
+      fname: ["Elon", Validators.required],
+      lname: ["musk", Validators.required],
+      email: ["elon@yopmail.com", Validators.required],
       url: ["http://rocketrides.io", Validators.required],
-      tax_id: ["000000000", Validators.required],
-      phone: ["4088675309", Validators.required],
-      line1: ["200 S. Virginia St.", Validators.required],
-      city: ["Reno", Validators.required],
-      state: ["NV", Validators.required],
-      postal_code: ["89501", Validators.required],
-      account_number: ["000123456789", Validators.required],
-      routing_number: ["110000000", Validators.required]
+      mcc: ["7623", Validators.required],
+      phone: ["0397734503", Validators.required],
+      line1: ["40 Parkes Road", Validators.required],
+      line2: ["", Validators.required],
+      city: ["Southbank", Validators.required],
+      state: ["VIC", Validators.required],
+      postal_code: ["3006", Validators.required],
+      account_number: ["000123456", Validators.required],
+      routing_number: ["110000", Validators.required]
     });
   }
 
   // when submitted,
   // - tokenize bank details
   createBankAccount() {
-    var account = document.getElementById("account_number");
-    var routing = document.getElementById("routing_number");
-    var name = document.getElementById("name");
     this.debug("Creating bank account...");
     this.stripeService
       .createToken("bank_account", {

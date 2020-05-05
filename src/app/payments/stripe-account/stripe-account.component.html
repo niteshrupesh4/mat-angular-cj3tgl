@@ -8,16 +8,24 @@
 						<form [formGroup]="accountForm" id="account-form">
 							<fieldset>
 								<label>
-                <span>Name</span>
-                <input type="text" name="name" formControlName="name" id="name" class="field">
+                <span>First Name</span>
+                <input type="text" name="name" formControlName="fname" id="name" class="field">
+              </label>
+								<label>
+                <span>Last Name</span>
+                <input type="text" name="lname" formControlName="lname" id="lname" class="field">
+              </label>
+              	<label>
+                <span>Email</span>
+                <input type="text" name="email" formControlName="email" id="email" class="field">
               </label>
 								<label>
                 <span>URL</span>
                 <input type="text" name="url" id="url" formControlName="url" class="field">
               </label>
 								<label>
-                <span>Tax ID</span>
-                <input type="text" name="tax_id" id="tax_id" formControlName="tax_id" class="field">
+                <span>Merchant category code</span>
+                <input type="text" name="mcc" id="mcc" formControlName="mcc" class="field">
               </label>
 								<label>
                 <span>Phone</span>
@@ -27,8 +35,12 @@
 
 							<fieldset>
 								<label>
-                <span>Address</span>
+                <span>Address line1</span>
                 <input type="text" name="line1" id="line1" class="field" formControlName="line1">
+              </label>
+              	<label>
+                <span>Address line2</span>
+                <input type="text" name="line2" id="line2" class="field" formControlName="line2">
               </label>
 								<label>
                 <span>City</span>
