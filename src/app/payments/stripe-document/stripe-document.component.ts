@@ -9,6 +9,7 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 })
 export class StripeDocumentComponent implements OnInit {
   file: any;
+  currentFileUpload: File;
   constructor(private stripeService: StripeService, private http: HttpClient) {}
 
   ngOnInit() {}
@@ -18,41 +19,20 @@ export class StripeDocumentComponent implements OnInit {
   }
 
   uploadDocument() {
-    let headers = new HttpHeaders({
-      Authorization: `Bearer ${this.stripeService.key}`
-    });
-    let options = { headers: headers };
-    var fd: FormData = new FormData(); 
-    fd.set("purpose", "identity_document");
-    fd.set("file", this.file[0]);
-    debugger;
+
     this.debug("Uploading document...");
-    this.http
-      .post(
-        "https://files.stripe.com/v1/files",
-        {
-          body: fd
-        },
-        options
-      )
+    const payload = new FormData();
+    payload.append("purpose", "identity_document");
+    payload.append("file", this.currentFileUpload, this.currentFileUpload.name);
+    this.http.post("https://files.stripe.com/v1/files", payload, {
+        headers: {
+          Authorization: `Bearer ${this.stripeService.key}`
+        }
+      })
       .subscribe((response: any) => {
         this.debug(JSON.stringify(response, null, 2));
-        return response.id;
+        console.log(response);
       });
-    // return fetch("https://files.stripe.com/v1/files", {
-    //   method: "POST",
-    //   headers: {
-    //     Authorization: `Bearer ${this.stripeService.key}`
-    //   },
-    //   body: fd
-    // })
-    //   .then(function(r) {
-    //     return r.json();
-    //   })
-    //   .then(function(response) {
-    //     this.debug(JSON.stringify(response, null, 2));
-    //     return response.id;
-    //   });
   }
   debug(message) {
     var debugMessage = document.getElementById("debug-message");
