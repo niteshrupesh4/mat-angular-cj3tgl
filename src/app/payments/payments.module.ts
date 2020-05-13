@@ -16,7 +16,7 @@ import { StripeDocumentComponent } from './stripe-document/stripe-document.compo
     PaymentsRoutingModule,
     FormsModule,
     MaterialModule,
-    NgxStripeModule.forRoot('pk_test_A8tTtxjDU53fx2ubFGqeUCnI'),
+    NgxStripeModule.forRoot('pk_test_8wygWN2wO9HNslgwc6lEo0Yy00CuRzvhYd'),
     HttpClientModule,
     ReactiveFormsModule
   ],
