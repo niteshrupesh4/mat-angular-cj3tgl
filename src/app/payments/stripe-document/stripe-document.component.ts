@@ -24,7 +24,6 @@ export class StripeDocumentComponent implements OnInit {
     const payload = new FormData();
     payload.append("purpose", "identity_document");
     payload.append("file", this.currentFileUpload, this.currentFileUpload.name);
-
     this.http
       .post("https://files.stripe.com/v1/files", payload, {
         headers: {
