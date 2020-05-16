@@ -48,9 +48,12 @@
 				<span *ngIf="f.confirmEmail.errors['required']">
         confirmEmail is required
         </span>
-				<span *ngIf="f.confirmEmail.errors['EmailMustMatch']">
-          Confirm email does not match with email
-           </span>
+				<!-- <span *ngIf="f.confirmEmail.errors['EmailMustMatch']">
+          Confirm EmailMustMatch email does not match with email
+           </span> -->
+				<span *ngIf="f.confirmEmail.errors['MustMatch']">
+          Confirm MustMatch email does not match with email
+          </span>
 			</div>
 			<div class="text-center">
 				<button type="button" (click)="onSubmit()" class="btn btn-green">Update</button>

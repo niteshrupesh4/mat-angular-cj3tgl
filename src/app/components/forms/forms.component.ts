@@ -39,6 +39,8 @@ export class FormsComponent implements OnInit {
       {
         validator: [
           MustMatch("newPassword", "confirmPassword"),
+          // MustMatch("email", "confirmEmail"),
+
           EmailMustMatch("email", "confirmEmail")
         ]
       }
