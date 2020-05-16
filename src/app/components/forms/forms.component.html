@@ -1,37 +1,60 @@
 <mat-card>
 	<mat-card-content>
 		<mat-card-title>Forms basic</mat-card-title>
-		<p>
+		<form [formGroup]="setForm">
 			<mat-form-field appearance="legacy">
 				<mat-label>Legacy form field</mat-label>
-				<input matInput placeholder="Placeholder">
+				<input matInput formControlName="newPassword" placeholder="New Password">
 				<mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
 				<mat-hint>Hint</mat-hint>
 			</mat-form-field>
-		</p>
-		<p>
-			<mat-form-field appearance="standard">
-				<mat-label>Standard form field</mat-label>
-				<input matInput placeholder="Placeholder">
+			<div *ngIf="f.newPassword.errors" class="error-text">
+				<span *ngIf="f.newPassword.errors['required']">
+        Password is required
+        </span>
+			</div>
+			<mat-form-field appearance="legacy">
+				<mat-label>Legacy form field</mat-label>
+				<input matInput formControlName="confirmPassword" placeholder="New Password">
 				<mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
 				<mat-hint>Hint</mat-hint>
 			</mat-form-field>
-		</p>
-		<p>
-			<mat-form-field appearance="fill">
-				<mat-label>Fill form field</mat-label>
-				<input matInput placeholder="Placeholder">
+			<div *ngIf="f.confirmPassword.errors" class="error-text">
+				<span *ngIf="f.confirmPassword.errors['required']">
+        Password is required
+        </span>
+				<span *ngIf="f.confirmPassword.errors['mustMatch']">
+          Confirm password does not match with new password
+           </span>
+			</div>
+			<mat-form-field appearance="legacy">
+				<mat-label>Legacy form field</mat-label>
+				<input matInput formControlName="email" placeholder="email">
 				<mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
 				<mat-hint>Hint</mat-hint>
 			</mat-form-field>
-		</p>
-		<p>
-			<mat-form-field appearance="outline">
-				<mat-label>Outline form field</mat-label>
-				<input matInput placeholder="Placeholder">
+			<div *ngIf="f.email.errors" class="error-text">
+				<span *ngIf="f.email.errors['required']">
+        email is required
+        </span>
+			</div>
+			<mat-form-field appearance="legacy">
+				<mat-label>Legacy form field</mat-label>
+				<input matInput formControlName="confirmEmail" placeholder="New Password">
 				<mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
 				<mat-hint>Hint</mat-hint>
 			</mat-form-field>
-		</p>
+			<div *ngIf="f.confirmEmail.errors" class="error-text">
+				<span *ngIf="f.confirmEmail.errors['required']">
+        confirmEmail is required
+        </span>
+				<span *ngIf="f.confirmEmail.errors['mustMatch']">
+          Confirm email does not match with email
+           </span>
+			</div>
+			<div class="text-center">
+				<button type="button" (click)="onSubmit()" class="btn btn-green">Update</button>
+			</div>
+		</form>
 	</mat-card-content>
 </mat-card>
