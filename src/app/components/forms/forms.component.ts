@@ -38,7 +38,7 @@ export class FormsComponent implements OnInit {
       },
       {
         validator: MustMatch("newPassword", "confirmPassword"),
-        validator1: MustMatch("email", "confirmEmail")
+        valid: EmailMustMatch("email", "confirmEmail")
       }
     );
   }
@@ -55,6 +55,25 @@ export class FormsComponent implements OnInit {
   }
 }
 export function MustMatch(controlName: string, matchingControlName: string) {
+  return (formGroup: FormGroup) => {
+    const control = formGroup.controls[controlName];
+    const matchingControl = formGroup.controls[matchingControlName];
+
+    if (matchingControl.errors && !matchingControl.errors.mustMatch) {
+      // return if another validator has already found an error on the matchingControl
+      return;
+    }
+
+    // set error on matchingControl if validation fails
+    if (control.value !== matchingControl.value) {
+      matchingControl.setErrors({ mustMatch: true });
+    } else {
+      matchingControl.setErrors(null);
+    }
+  };
+}
+
+export function EmailMustMatch(controlName: string, matchingControlName: string) {
   return (formGroup: FormGroup) => {
     const control = formGroup.controls[controlName];
     const matchingControl = formGroup.controls[matchingControlName];
