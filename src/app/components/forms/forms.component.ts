@@ -24,6 +24,10 @@ export class FormsComponent implements OnInit {
     return this.setForm.controls;
   }
 
+   get em() {
+    return this.f.confirmEmail.errors['MustMatch'];
+  }
+
   /**
    * Method : initializationForm
    * Purpose : First time Form initialization
@@ -39,9 +43,7 @@ export class FormsComponent implements OnInit {
       {
         validator: [
           MustMatch("newPassword", "confirmPassword"),
-          // MustMatch("email", "confirmEmail"),
-
-          EmailMustMatch("email", "confirmEmail")
+          MustMatch("email", "confirmEmail")
         ]
       }
     );
